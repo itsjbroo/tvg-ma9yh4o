@@ -1,2 +1,8 @@
 secrets/
 claude.exe
+
+.cache/
+out/
+reports/
+__pycache__/
+/playlist.txt

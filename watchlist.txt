@@ -1,0 +1,7 @@
+# Optional. Leave empty (or only comments) to publish ALL channels in the configured groups.
+# Add channel names (one per line, substring match, case-insensitive) to publish only those.
+# To keep a whole playlist group, write:  group: UK | Sky Sports
+# Examples:
+#   Sky Sports Main Event
+#   Star Plus
+#   group: SPORTS | beIN Media

@@ -1,0 +1,15 @@
+# Manual name -> guide channel mappings. Format: playlist_name_regex,guide_channel_id_or_name
+# The regex is matched (case-insensitive, full match) against the raw playlist channel name.
+# \1, \2 refer to regex groups. The target may be a guide channel id or a display name.
+# Applied only to guide sources of the channel's own region.
+#
+# beIN Sports (guide: epgshare BEIN1). English-language (_EN) listings are used on purpose.
+(?:UK: )?BEIN SPORTS HD EN ([12]),beIN_SPORTS\1_ENGLISH_Digital_Mono_EN.bein
+(?:UK: )?BEIN SPORTS HD EN ([3-9]),beIN_SPORTS\1_DIGITAL_Mono_EN.bein
+BEIN SPORTS? ([1-7])(?: HD)?,beIN_SPORTS\1_DIGITAL_Mono_EN.bein
+BEIN SPORTS? (8|9),logos-_beINSPORTS\1_EN.bein
+BEIN MAX ([1-4]) EN HD,beIN_SPORTS_MAX\1_DIGITAL_Mono_EN.bein
+BEIN MAX ([1-6]) \(\w\) - (?:4K|HD|SD),beIN_SPORTS_MAX\1_DIGITAL_Mono_EN.bein
+4K \| BEIN SPORTS UHD/ 4K,4k_DIGITAL_Mono_EN.bein
+BEIN SPORTS? NEWS.*,NEWS_DIGITAL_Mono_EN.bein
+BEIN SPORTS? ([1-9]) \(\w\) - (?:HEVC|HD|SD|4K),beIN_SPORTS\1_DIGITAL_Mono_EN.bein

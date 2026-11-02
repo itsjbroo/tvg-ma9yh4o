@@ -1,0 +1,39 @@
+{
+  "days_ahead": 3,
+  "hours_back": 3,
+  "max_desc_chars": 160,
+
+  "groups": [
+    {"region": "UK", "titles": [
+      "UK | Entertainment", "UK | Sky Sports", "UK | Religious", "UK | Premier Sports GB",
+      "UK | Kids", "UK | Movies", "UK | Documentaries", "UK | News", "UK | Sports", "UK | TNT Sports"]},
+    {"region": "IN", "titles": [
+      "IN | News", "IN | Movies", "IN | Entertainment", "IN | Religious",
+      "IN | Documentaries", "IN | Music", "IN/PK | Sports"]},
+    {"region": "US", "titles": ["US | News", "US | Sports"]},
+    {"region": "AR", "titles": [
+      "SPORTS | beIN Media", "SPORTS | beIN MAX", "AR | beIN Entertainment"]}
+  ],
+
+  "provider_only_prefixes": ["PK |", "INR"],
+
+  "sources": [
+    {"id": "provider", "kind": "provider", "regions": ["*"], "priority": 1},
+
+    {"id": "epgshare-IN1",  "url": "https://epgshare01.online/epgshare01/epg_ripper_IN1.xml.gz",  "regions": ["IN"], "priority": 10},
+    {"id": "epgshare-IN4",  "url": "https://epgshare01.online/epgshare01/epg_ripper_IN4.xml.gz",  "regions": ["IN"], "priority": 11},
+    {"id": "epgshare-UK1",  "url": "https://epgshare01.online/epgshare01/epg_ripper_UK1.xml.gz",  "regions": ["UK"], "priority": 10},
+    {"id": "epgshare-US2",  "url": "https://epgshare01.online/epgshare01/epg_ripper_US2.xml.gz",  "regions": ["US"], "priority": 10},
+    {"id": "epgshare-US_SPORTS1", "url": "https://epgshare01.online/epgshare01/epg_ripper_US_SPORTS1.xml.gz", "regions": ["US"], "priority": 11},
+    {"id": "epgshare-BEIN1","url": "https://epgshare01.online/epgshare01/epg_ripper_BEIN1.xml.gz","regions": ["AR"], "priority": 10},
+    {"id": "epgshare-AE1",  "url": "https://epgshare01.online/epgshare01/epg_ripper_AE1.xml.gz",  "regions": ["AR"], "priority": 11},
+    {"id": "epgshare-SA2",  "url": "https://epgshare01.online/epgshare01/epg_ripper_SA2.xml.gz",  "regions": ["AR"], "priority": 12},
+
+    {"id": "epgpw-IN", "url": "https://epg.pw/xmltv/epg_IN.xml", "regions": ["IN"], "priority": 20},
+    {"id": "epgpw-GB", "url": "https://epg.pw/xmltv/epg_GB.xml", "regions": ["UK"], "priority": 20},
+    {"id": "epgpw-US", "url": "https://epg.pw/xmltv/epg_US.xml", "regions": ["US"], "priority": 20},
+
+    {"id": "openepg-india1", "url": "https://www.open-epg.com/files/india1.xml", "regions": ["IN"], "priority": 30},
+    {"id": "openepg-uk1",    "url": "https://www.open-epg.com/files/unitedkingdom1.xml", "regions": ["UK"], "priority": 30}
+  ]
+}

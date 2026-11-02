@@ -1,0 +1,61 @@
+name: Build and publish EPG
+
+on:
+  schedule:
+    - cron: "17 3 * * *"   # daily, 03:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Mask playlist values in logs
+        env:
+          PLAYLIST_INI: ${{ secrets.PLAYLIST_INI }}
+        run: |
+          while IFS= read -r line; do
+            v="${line#*=}"
+            [ "$v" != "$line" ] && [ -n "$v" ] && echo "::add-mask::$v"
+          done <<< "$PLAYLIST_INI"
+          true
+
+      - name: Build guide
+        env:
+          PLAYLIST_INI: ${{ secrets.PLAYLIST_INI }}
+        run: python build_epg.py
+
+      - name: Check output
+        run: |
+          test -s out/epg.xml.gz
+          ls -l out
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
